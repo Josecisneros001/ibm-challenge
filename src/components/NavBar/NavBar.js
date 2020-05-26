@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, Row, Col } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt, faUser, faHospital } from '@fortawesome/free-solid-svg-icons';
+import { faSignOutAlt, faHospital } from '@fortawesome/free-solid-svg-icons';
 import './NavBar.css';
 
 
@@ -82,13 +82,7 @@ class NavBar extends Component {
           <FontAwesomeIcon icon={faSignOutAlt} className='mr-2' />
         </Nav.Link>
 
-        <Nav.Link 
-          as={Link}
-          to={'/profile'}
-          className={"user-info "+this.getClassName('/profile')} 
-          onClick={() => {this.handleNavbarClick('/profile')}}>
-          <FontAwesomeIcon icon={faUser} className='mr-2' />
-        </Nav.Link>
+        
 
       </Navbar>
 

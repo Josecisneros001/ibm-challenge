@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import NavBar from "./components/NavBar/NavBar.js";
 import Dashboard from "./components/Dashboard/Dashboard.js";
 import Profile from "./components/Profile/Profile.js";
-import Covid19 from "./components/Covid19/Covid19.js";
 import Patients from "./components/Patients/Patients.js";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { loadCSS } from 'fg-loadcss/src/loadCSS';
 import routesData from './data/routes.json';
+import profileData from './data/profile.json';
 import './App.css';
+
+const actualProfileId = "dr1-id";
 
 class App extends Component {
   componentDidMount() {
@@ -35,14 +37,9 @@ class App extends Component {
           
           <Route
             exact path='/profile'
-            component={ () => <Profile /> }
+            component={ () => <Profile profileData={profileData.profile[actualProfileId]} /> }
           />
 
-          <Route
-            exact path='/covid19'
-            component={ () => <Covid19 /> }
-          />
-          
           <Route
             exact path='/patients'
             component={ () => <Patients /> }

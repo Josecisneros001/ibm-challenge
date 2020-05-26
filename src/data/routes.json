@@ -9,11 +9,6 @@
       "path": "/patients",
       "legend": "Patients",
       "component": "Patients"
-    },
-    {
-      "path": "/covid19",
-      "legend": "Covid-19",
-      "component": "Covid-19"
     }
   ]
 }
