@@ -110,8 +110,10 @@ right: 60px;
 }
 
 .hospital-icon{
+  padding: 0px;
   margin-right: 20px !important;
   margin-left: 30px !important;
+  margin-bottom: 0px;
   color: rgb(255, 255, 255,0.5) !important;
   font-size:32px;
 }

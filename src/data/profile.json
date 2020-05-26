@@ -1,0 +1,12 @@
+{
+  "profile": {
+    "dr1-id" : {
+      "username":"dr1",
+      "password":"abc",
+      "firstName": "Andrés",
+      "lastName": "Abundis",
+      "email": "andres@gmail.com",
+      "specialty": "traumatology"
+    }
+  }
+}
