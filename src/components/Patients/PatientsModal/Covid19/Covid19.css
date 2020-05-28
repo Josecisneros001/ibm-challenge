@@ -1,0 +1,48 @@
+.width-btn{
+    min-width: 100%;
+    outline: auto;
+    border: 1px black !important;
+}
+
+.radio-img{
+    width: 100%;
+    height: 100%;
+}
+
+.resultsTable{
+    font-size: 18px;
+    text-align: center;
+}
+
+.resultTitle{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.resultsTitle{
+    text-align: center;
+}
+
+@media (max-width: 700px){
+    .width-btn{
+        font-size: 15px;
+    }
+    .resultsTable{
+        font-size: 14.5px;
+    }
+}
+
+@media (max-width: 576px){
+    .resultsTable{
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 350px){
+    .width-btn{
+        font-size: 12px;
+    }
+    .resultsTable{
+        font-size: 13px;
+    }
+}
