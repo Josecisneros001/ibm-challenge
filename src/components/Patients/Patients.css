@@ -26,15 +26,6 @@
     padding-bottom: 10px;
 }
 
-.dataInfo{
-    font-size: 15px;
-}
-
-.dataTitle{
-    font-weight: bold;
-    font-size: 15px;
-}
-
 .cardTitle{
     font-size: 18px;
 }
@@ -45,4 +36,10 @@
 
 .card-container:hover {
     transform: scale(1.01);
+}
+
+.modal-90w{
+    width: 90%;
+    margin-top: 50px;
+    max-width: none!important;
 }
