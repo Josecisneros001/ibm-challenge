@@ -1,0 +1,45 @@
+.lineChart-container > div{
+    display:flex;
+    justify-content: center;
+}
+
+.width-btn{
+    min-width: 100%;
+    outline: auto;
+    border: 1px black !important;
+}
+
+
+.resultTitle{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.resultsTitle{
+    text-align: center;
+}
+
+.resultsECGTable{
+    text-align: center;
+
+}
+@media (max-width: 700px){
+    .width-btn{
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 350px){
+    .width-btn{
+        font-size: 12px;
+    }
+}
+
+.lineChart-container{
+    margin-top: -40px;
+    margin-bottom: -20px;
+}
+
+.lineChart-container svg{
+    overflow: unset;
+}
