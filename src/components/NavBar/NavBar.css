@@ -1,0 +1,119 @@
+#app-navbar {
+  height: 48px;
+  padding: 0 1px 0 0;
+}
+
+#app-navbar .navbar-brand {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#app-navbar #navbar-logo {
+  width: 35px;
+  height: 35px;
+}
+
+#app-navbar #navbar-cart {
+  margin-right: 5px;
+  margin-bottom: 2px;
+  align-content: center;
+  width: 35px;
+  height: 35px;
+}
+
+#app-navbar #responsive-navbar {
+  height: 100%;
+}
+
+#app-navbar .navbar-toggler {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+@media only screen and (max-width : 992px) {
+  #app-navbar .navbar-nav {
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    background-color: rgb(25, 30, 35);
+  }
+}
+
+#app-navbar .navbar-nav {
+  height: 100%;
+  width: 100%;
+  align-items: center;
+}
+
+#app-navbar .navbar-nav .navbar-btn {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 13px;
+}
+
+#app-navbar .navbar-nav .navbar-btn.active {
+  color: rgb(0, 225, 250);
+  border-bottom: 2px solid;
+}
+
+#app-navbar .navbar-nav .navbar-btn-legend {
+  transition: 0.2s;
+  transform: translateY(4px);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+#app-navbar .navbar-nav .navbar-btn:hover .navbar-btn-legend {
+  transform: translateY(1px);
+  color: rgb(0, 225, 250);
+}
+
+#app-navbar .navbar-nav .navbar-btn.active .navbar-btn-legend {
+  color: rgb(0, 225, 250);
+}
+
+.cart-head {
+border-color: transparent;
+}
+
+.sign-out{
+position: absolute;
+right: 10px;
+font-size: 30px;
+color: rgb(255, 255, 255,0.5);
+}
+
+.user-info{
+position: absolute;
+right: 60px;
+font-size: 30px;
+color: rgb(255, 255, 255,0.5);
+}
+
+.user-info.active{
+  color: rgb(0, 225, 250);
+}
+    
+.user-info:hover{
+  color: rgb(0, 225, 250);
+  transform: translateY(-5px);
+}
+
+  
+.sign-out:hover{
+  color: rgb(0, 225, 250);
+  transform: translateY(-5px);
+}
+
+.navbar-toggler{
+position: absolute;
+right: 60px;
+}
+
+.hospital-icon{
+  padding: 0px;
+  margin-right: 20px !important;
+  margin-left: 30px !important;
+  margin-bottom: 0px;
+  color: rgb(255, 255, 255,0.5) !important;
+  font-size:32px;
+}

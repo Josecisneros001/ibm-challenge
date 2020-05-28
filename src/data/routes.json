@@ -1,0 +1,14 @@
+{
+  "routes": [
+    {
+      "path": "/",
+      "legend": "Dashboard",
+      "component": "Dashboard"
+    },
+    {
+      "path": "/patients",
+      "legend": "Patients",
+      "component": "Patients"
+    }
+  ]
+}
