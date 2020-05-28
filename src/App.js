@@ -4,7 +4,6 @@ import Dashboard from "./components/Dashboard/Dashboard.js";
 import Profile from "./components/Profile/Profile.js";
 import Patients from "./components/Patients/Patients.js";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { loadCSS } from 'fg-loadcss/src/loadCSS';
 import routesData from './data/routes.json';
 import profileData from './data/profile.json';
 import './App.css';
@@ -12,12 +11,6 @@ import './App.css';
 const actualProfileId = "dr1-id";
 
 class App extends Component {
-  componentDidMount() {
-    loadCSS(
-      'https://use.fontawesome.com/releases/v5.1.0/css/all.css',
-      document.querySelector('#insertion-point-jss'),
-    );
-  }
 
   render() {
     document.title = "IBMCHALLENGE";
