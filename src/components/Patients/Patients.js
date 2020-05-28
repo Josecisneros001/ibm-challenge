@@ -1,25 +1,36 @@
 import React, { Component } from 'react';
-import {Card, Col, Row, FormControl} from 'react-bootstrap';
-import patientsList from '../../data/patients.json'
+import {Modal, Card, Col, Row, FormControl} from 'react-bootstrap';
+import PatientsInformation from './PatientsInformation/PatientsInformation.js';
+import PatientsModal from './PatientsModal/PatientsModal.js';
+import patientsList from '../../data/patients.json';
 import './Patients.css';
 
 
 class Patients extends Component { 
     constructor(props){
         super(props);
-        
+        this.handleModalShow = this.handleModalShow.bind(this);
         this.doFilter = this.doFilter.bind(this);
         this.bringPatients = this.bringPatients.bind(this);
         
         this.state={
             patients:[],
+            patient: {},
             filter: '',
+            showModal: false,
         };
     }
     
     componentDidMount(){
         this.setState({ 
             patients: patientsList.patients,
+        });
+    }
+
+    handleModalShow(show,patient){
+        this.setState({
+            showModal:show,
+            patient:patient
         });
     }
 
@@ -35,33 +46,10 @@ class Patients extends Component { 
             }
             return (
                 <Col className='card-container' key={patient.id} xs='10' sm='6' md='4' lg='4' xl='3'>
-                    <Card className='card-content'>
+                    <Card className='card-content' onClick={()=>{this.handleModalShow(true,patient)}}>
                         <Card.Body>
                             <Card.Title className='cardTitle'>{patient.name+' '+patient.lastName}</Card.Title>
-                            <Row className='dataRow'>
-                                <Col xs='6'>
-                                    <Row className='dataTitle m-0'>GENRE</Row>
-                                    <Row className='dataInfo m-0'>{patient.genre} </Row>
-                                </Col>
-                                <Col xs='6'>
-                                    <Row className='dataTitle m-0'>ABO</Row>
-                                    <Row className='dataInfo m-0'>{patient.bloodType} </Row>
-                                </Col>
-                                <Col xs='6'>
-                                    <Row className='dataTitle m-0'>ROOM</Row>
-                                    <Row className='dataInfo m-0'>{patient.room} </Row>
-                                </Col>
-                                <Col xs='6'>
-                                    <Row className='dataTitle m-0'>DOB</Row>
-                                    <Row className='dataInfo m-0'>{patient.dob} </Row>
-                                </Col>
-                            </Row>
-                            <Row className='dataRow'>
-                                <Col xs='12'>
-                                    <Row className='dataTitle m-0'>REG. REASON</Row>
-                                    <Row className='dataInfo m-0'>{patient.reason} </Row>
-                                </Col>
-                            </Row>
+                            <PatientsInformation patient={ patient } />
                         </Card.Body>
                         <Card.Footer>
                             <small className='text-muted'>Last updated {patient.update} mins ago</small>
@@ -90,6 +78,22 @@ class Patients extends Component { 
                         {this.bringPatients()}
                     </Row>
                 </Col>
+                <Modal
+                    dialogClassName="modal-90w"
+                    show={this.state.showModal}
+                    onHide={() => this.handleModalShow(false)}
+                    aria-labelledby="example-modal-sizes-title-lg"
+                >
+                    <Modal.Header closeButton>
+                    <Modal.Title id="example-modal-sizes-title-lg">
+                        { typeof this.state.patient == 'undefined' ? '' : 
+                        this.state.patient.name+' '+this.state.patient.lastName }
+                    </Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <PatientsModal patient={this.state.patient} />
+                    </Modal.Body>
+                </Modal>
             </Row>
         );
     }

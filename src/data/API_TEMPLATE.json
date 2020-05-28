@@ -1,0 +1,29 @@
+
+{
+    "INFO" : "This is the template of the real API.json file",
+    "WATSON_ECG":{
+        "FIELDS": [],
+        "INSTANCE": "",
+        "URL": "",
+        "TOKEN": {
+            "VALUE": "",
+            "API_KEY": "",
+            "URL": "",
+            "USER": "",
+            "PASSWORD": "",
+            "TIMESTAMP": 0
+        }
+    },
+    "CLOUDINARY": {
+        "PRESET": "",
+        "API_KEY" : "",
+        "API_SECRET": "",
+        "URL": ""
+    },
+    "WATSON_IMG": {
+        "URL": "",
+        "API_KEY" : "",
+        "CLASSIFIER": "",
+        "THRESHOLD" : 0
+    }
+}
