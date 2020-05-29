@@ -11,10 +11,6 @@ import './App.css';
 const actualProfileId = "dr1-id";
 
 class App extends Component {
-  
-  componentDidMount() {
-    
-  }
 
   render() {
     document.title = "IBMCHALLENGE";
