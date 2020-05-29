@@ -25,7 +25,7 @@ class App extends Component {
           
           <Route
             exact path='/'
-            component={ () => <Dashboard /> }
+            component={ () => <Dashboard Drid={actualProfileId} /> }
           />
           
           <Route
