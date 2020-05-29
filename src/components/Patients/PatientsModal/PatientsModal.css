@@ -1,8 +1,4 @@
-.patientsModal-contanier{
+.addPatient-contanier{
     justify-content: center;
     margin: 0px;
-}
-
-.card{
-    min-height: 100%;
 }
