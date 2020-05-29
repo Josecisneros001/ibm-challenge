@@ -6,6 +6,18 @@
     padding-top: 70px;
     justify-content: center;
     margin: 0px;
+    position: relative;
+}
+.patient-plus{
+    cursor: pointer;
+    font-size: 30px;
+    color: rgb(255, 255, 255,0.5);
+    right:30px;
+    position: absolute;
+}
+.patient-plus:hover {
+    color: rgb(0, 225, 250);
+    transform: translateY(-5px);
 }
 .search-bar{
     justify-content: center;

@@ -1,54 +1,35 @@
 import React, { Component } from 'react';
 import { Col, Row, Button } from 'react-bootstrap';
 import LineChart from 'react-linechart';
-import ECGData from '../../../../data/ECG.json';
 import APIData from '../../../../data/API.json';
-import base64 from 'base-64';
 import './ECG.css';
 
+const URL_BACKEND = process.env.REACT_APP_URL_BACKEND;
 
 class ECG extends Component {
     constructor(props) {
         super(props);
+        this.ECGData = this.props.ECGData;
         this.patient = this.props.patient;
+        this.wmlToken = this.props.wmlToken;
+        this.updatePatients = this.props.updatePatients;
         this.state = {
             points: [],
         }
     }
-    
+
     componentDidMount() {
         let newPoints = [];
         for (let i = 1; i < 187; i++) {
-            newPoints.push({ x: 0.008 * i, y: ECGData[70][i] })
+            newPoints.push({ x: 0.008 * i, y: this.ECGData[this.patient.ECGid][i] })
         }
         
         this.setState({ points: newPoints });
     }
-    
-    
-    updateToken() {
-        const data = APIData.WATSON_ECG.TOKEN;
-        const authorization = 'Basic ' + base64.encode(data.USER+':'+data.PASSWORD);
-        fetch( data.URL , {
-            method: 'POST',
-            headers: {
-                'Authorization': authorization, 
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: "apikey=" + data.API_KEY + "&grant_type=urn:ibm:params:oauth:grant-type:apikey"
-        }).then((response) => {
-            return response.json();
-        }).then((responseData) => {
-            data.VALUE = responseData['access_token'];
-            console.log(data.VALUE);
-        }).catch(function (err) {
-            console.log(err);
-        })
-    }
 
     doRequest() {
         const data = APIData.WATSON_ECG;
-        const wmlToken = "Bearer " + data.TOKEN.VALUE;
+        const wmlToken = "Bearer " + this.wmlToken;
         const mlInstanceId = data.INSTANCE;
         
         fetch(data.URL, {
@@ -62,12 +43,49 @@ class ECG extends Component {
             body: JSON.stringify({
                 "input_data": [{
                     "fields": data.FIELDS,
-                    "values": [ECGData[0].slice(1)]
+                    "values": [this.ECGData[this.patient.ECGid].slice(1)]
                 }]
             })
         }).then((response) => {
-            if(response.status === 401){
-                this.updateToken();
+            if(response.status === 200){
+                console.log(response.status);
+                return response.json();
+            }else{
+                throw new Error('Something went wrong, WATSON ECG');
+            }
+        }).then((responseData) => {
+            this.saveResults(responseData["predictions"][0]["values"][0][1]);
+        }).catch(function (err) {
+            console.log(err);
+        })
+    }
+
+    saveResults(probabilities){
+        
+        for(let i in probabilities){
+            probabilities[i] = parseInt(probabilities[i]*10000)/100;
+        }
+
+        const reqBody = {
+            "ECGresult":{
+                "normal" : probabilities[0],
+                "veb" :  probabilities[1],      
+                "svt" :  probabilities[2],      
+                "fusion" :  probabilities[3]  
+            }
+        };
+        
+        this.updatePatients('ECG',this.patient.index,reqBody.ECGresult);
+        fetch(URL_BACKEND+'patient/' + this.patient.id, {
+            method: 'PATCH',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json;charset=UTF-8',
+            },
+            body: JSON.stringify(reqBody)
+        }).then((response) => {
+            if(response.status !== 202){
+                throw new Error('Something went wrong');
             }else{
                 return response.json();
             }
@@ -76,6 +94,7 @@ class ECG extends Component {
         }).catch(function (err) {
             console.log(err);
         })
+
     }
 
     render() {
@@ -104,7 +123,6 @@ class ECG extends Component {
                                 variant='light'
                                 className='width-btn btn-block'
                                 onClick={ () => this.doRequest() } 
-                                custom
                                 >
                                 RUN TEST
                             </Button>
@@ -122,7 +140,7 @@ class ECG extends Component {
                                     <span title='Normal Beat' >Normal:</span>
                                 </Col>
                                 <Col xs='6'>
-                                    {0.98}%
+                                    {this.patient.ECGresult.normal}%
                                 </Col>
                             </Row>
                             <Row className='justify-content-center'>
@@ -130,7 +148,7 @@ class ECG extends Component {
                                     <span title='Ventricular Ectopic Beat' >VEB:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                 </Col>
                                 <Col xs='6'>
-                                    {0.98}%
+                                    {this.patient.ECGresult.veb}%
                                 </Col>
                             </Row>
                             <Row className='justify-content-center'>
@@ -138,7 +156,7 @@ class ECG extends Component {
                                     <span title='Supraventricular Tachycardia Beat' >SVT:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                 </Col>
                                 <Col xs='6'>
-                                    {0.98}%
+                                    {this.patient.ECGresult.svt}%
                                 </Col>
                             </Row>
                             <Row className='justify-content-center'>
@@ -146,7 +164,7 @@ class ECG extends Component {
                                 <span title='Fusion Beat' >Fusion:&nbsp;&nbsp;</span>
                                 </Col>
                                 <Col xs='6'>
-                                    {0.98}%
+                                    {this.patient.ECGresult.fusion}%
                                 </Col>
                             </Row>
                         </Col>
