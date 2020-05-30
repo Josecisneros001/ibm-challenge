@@ -16,8 +16,7 @@
     position: absolute;
 }
 .patient-plus:hover {
-    color: rgb(0, 225, 250);
-    transform: translateY(-5px);
+   transform: translateY(-5px);
 }
 .search-bar{
     justify-content: center;
