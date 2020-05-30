@@ -69,7 +69,6 @@ class AddPatient extends Component {
                 "covid19":0
             }
         };
-        this.updatePatients('addPatient', -1, newPatient);
         this.addPatient(newPatient);
         this.showModal(false);
     }
@@ -90,6 +89,8 @@ class AddPatient extends Component {
             }
         }).then((responseData) => {
             console.log(responseData);
+            patient['id']=responseData['id'];
+            this.updatePatients('addPatient', -1, patient);
         }).catch(function (err) {
             console.log(err);
         })
