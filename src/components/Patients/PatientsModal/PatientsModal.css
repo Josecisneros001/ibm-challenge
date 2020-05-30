@@ -2,3 +2,7 @@
     justify-content: center;
     margin: 0px;
 }
+
+.card-patient{
+    min-height: 100%;
+}

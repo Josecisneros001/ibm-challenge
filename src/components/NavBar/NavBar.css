@@ -75,39 +75,6 @@
 border-color: transparent;
 }
 
-.sign-out{
-position: absolute;
-right: 10px;
-font-size: 30px;
-color: rgb(255, 255, 255,0.5);
-}
-
-.user-info{
-position: absolute;
-right: 60px;
-font-size: 30px;
-color: rgb(255, 255, 255,0.5);
-}
-
-.user-info.active{
-  color: rgb(0, 225, 250);
-}
-    
-.user-info:hover{
-  color: rgb(0, 225, 250);
-  transform: translateY(-5px);
-}
-
-  
-.sign-out:hover{
-  color: rgb(0, 225, 250);
-  transform: translateY(-5px);
-}
-
-.navbar-toggler{
-position: absolute;
-right: 60px;
-}
 
 .hospital-icon{
   padding: 0px;

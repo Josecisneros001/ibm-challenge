@@ -61,7 +61,7 @@ class AddPatient extends Component {
                 "svt" : 0,      
                 "fusion" : 0  
             },
-            "ECGid": Math.floor( Math.random()*149 ),
+            "ECGid": Math.floor( Math.random()*120 ),
             "xRayImg":"",
             "ImgResult":{
                 "normal": 0,
@@ -69,7 +69,7 @@ class AddPatient extends Component {
                 "covid19":0
             }
         };
-        this.updatePatients('addPatient',-1,newPatient);
+        this.updatePatients('addPatient', -1, newPatient);
         this.addPatient(newPatient);
         this.showModal(false);
     }
