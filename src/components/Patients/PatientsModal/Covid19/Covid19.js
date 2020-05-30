@@ -114,8 +114,9 @@ class Covid19 extends Component {
                 "covid19" :  0.0,      
             }
         }; 
-        console.log(classes);
+        
         classes.forEach(element => {
+            element.score = parseInt(element.score*10000)/100;
             switch(element.class){
                 case "COVID19":
                     reqBody["ImgResult"]["covid19"]=element.score;
