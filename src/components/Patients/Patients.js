@@ -150,7 +150,7 @@ class Patients extends Component { 
                 const patientFullName=patient.firstName+' '+patient.lastName;
                 if(patientFullName.toLowerCase().search(this.state.filter.toLowerCase()) !== -1)
                     return (
-                        <Col className='card-container' key={patient.id} xs='10' sm='6' md='4' lg='4' xl='3'>
+                        <Col className='card-container' key={index} xs='10' sm='6' md='4' lg='4' xl='3'>
                             <Card className='card-content' onClick={()=>{this.handleModalShow(true,patient)}}>
                                 <Card.Body>
                                     <Card.Title className='cardTitle'>{patient.firstName+' '+patient.lastName}</Card.Title>

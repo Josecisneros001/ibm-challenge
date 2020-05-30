@@ -44,7 +44,7 @@ class PatientsModal extends Component {
         return (
             <Row className='patientsModal-contanier m-0'>
                 <Col xs='12' sm='6' className='mb-3'>
-                    <Card>
+                    <Card className='card-patient'>
                         <Card.Body>
                             <Card.Header className='mb-2'>GENERAL INFORMATION</Card.Header>
                             <PatientsInformation patient={ this.patient } />
@@ -52,7 +52,7 @@ class PatientsModal extends Component {
                     </Card>
                 </Col>
                 <Col xs='12' sm='6' className='mb-3'>
-                    <Card>
+                    <Card className='card-patient'>
                         <Card.Body>
                             <Card.Header className='mb-2'>
                                 <Row>
@@ -69,7 +69,7 @@ class PatientsModal extends Component {
                     </Card>
                 </Col>
                 <Col xs='12'>
-                    <Card>
+                    <Card className='card-patient'>
                         <Card.Body>
                             <Card.Header className='mb-2'>COVID-19 AND PNEUMONIA DETECTION</Card.Header>
                             <Covid19 patient={ this.patient } updatePatients={ this.updatePatients } />
