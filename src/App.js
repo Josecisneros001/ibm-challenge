@@ -9,7 +9,7 @@ import routesData from './data/routes.json';
 import profileData from './data/profile.json';
 import './App.css';
 
-const actualProfileId = "dr1-id";
+const actualProfileId = "dr1id";
 
 class App extends Component {
   componentDidMount() {
@@ -32,7 +32,7 @@ class App extends Component {
           
           <Route
             exact path='/'
-            component={ () => <Dashboard /> }
+            component={ () => <Dashboard drid={actualProfileId} /> }
           />
           
           <Route

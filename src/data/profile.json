@@ -1,12 +1,21 @@
 {
   "profile": {
-    "dr1-id" : {
+    "dr1id" : {
       "username":"dr1",
       "password":"abc",
       "firstName": "Andrés",
       "lastName": "Abundis",
       "email": "andres@gmail.com",
-      "specialty": "traumatology"
+      "specialty": "Traumatology",
+      "photo": "https://lh3.googleusercontent.com/proxy/EhHX0ol6QDSB9gykEwW_ERE1HwUoTH5KG7Nne7yEFY6j2OTeLz3ApqKZfgPSKCW7lDM3l5VivSktEqwiL6HcZRQa2LZZVHrcP64MPOgeXiVHguzyvOvklZk"
+    },
+    "dr2id" : {
+      "username":"dr2",
+      "password":"def",
+      "firstName": "José",
+      "lastName": "Cisneros",
+      "email": "jose@gmail.com",
+      "specialty": "Oncology"
     }
   }
 }

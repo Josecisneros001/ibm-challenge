@@ -3,3 +3,47 @@
     background: linear-gradient( 45deg, rgba(20, 18, 19, 0.9) 30%, rgba(0, 94, 105, 0.9) 100%);
     background-color: #000000;
 }
+
+.jumbotron{
+    padding: 4rem 2rem 1rem 2rem;
+    margin: 0 16px;
+}
+
+.JumboTitle{
+    padding: 0 0;
+}
+
+.buffer{
+    height: 1.2rem;
+}
+
+.card-container{
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+}
+
+.card-content{
+    min-height: 100%;
+}
+
+.dataRow{
+    padding-bottom: 5px;
+}
+
+.dataRow > div{
+    padding-bottom: 10px;
+}
+
+.dataInfo{
+    font-size: 15px;
+}
+
+.dataTitle{
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.cardTitle{
+    font-size: 18px;
+}
