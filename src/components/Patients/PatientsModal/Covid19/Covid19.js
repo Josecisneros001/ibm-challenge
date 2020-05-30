@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Col, Row, Form, Button } from 'react-bootstrap';
 import APIData from '../../../../data/API.json';
+import placeholder from '../../../../images/placeholder-rectangle.png';
 import base64 from 'base-64';
 import $ from 'jquery';
 import './Covid19.css';
@@ -152,10 +153,15 @@ class Covid19 extends Component {
     }   
 
     render() {
+        console.log(this.patient.xRayImg)
         return (
             <Row className='justify-content-center'>
                 <Col xs='12' sm='6' lg='5'>
-                    <img src={this.patient.xRayImg} className='radio-img' alt='X-Ray Img' />
+                    <img 
+                        src={this.patient.xRayImg === '' || !this.patient.xRayImg ? placeholder : this.patient.xRayImg } 
+                        className='radio-img' 
+                        alt={this.patient.xRayImg === '' || !this.patient.xRayImg ? 'No File' : 'X-Ray Img' } 
+                    />
                 </Col>
                 <Col xs='12' sm='6' className='mt-3'>
                     <Row className='mb-2 justify-content-center'>

@@ -1,8 +1,12 @@
 .patients-contanier{
     width: 100%;
     min-height: 100%;
-    background: linear-gradient( 45deg, rgba(20, 18, 19, 0.9) 30%, rgba(0, 94, 105, 0.9) 100%);
-    background-color: #000000;
+    background:
+    linear-gradient(
+      45deg,
+      rgba(20, 18, 19, 0.9) 30%,
+      rgba(0, 94, 105, 0.9) 100%),
+    url(../../images/github_pattern.svg) top left/auto repeat fixed;
     padding-top: 70px;
     justify-content: center;
     margin: 0px;
@@ -16,8 +20,7 @@
     position: absolute;
 }
 .patient-plus:hover {
-    color: rgb(0, 225, 250);
-    transform: translateY(-5px);
+   transform: translateY(-5px);
 }
 .search-bar{
     justify-content: center;
